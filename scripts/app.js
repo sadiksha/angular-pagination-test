@@ -1,7 +1,14 @@
 (function(){
 
-  angular.module('paginationExample',['ui.bootstrap'])
-  .controller('ProfessionalController', ProfessionalController);
+  var module = angular.module('paginationExample',['ui.bootstrap', 'pascalprecht.translate'])
+  .controller('ProfessionalController', ProfessionalController)
+  .config(translateConfig);
+
+  translateConfig.$inject = ['$translateProvider', '$translatePartialLoaderProvider'];
+
+  function translateConfig($translateProvider, $translatePartialLoaderProvider) {
+    
+  }
 
   ProfessionalController.$inject = ['$scope', '$rootScope'];
 

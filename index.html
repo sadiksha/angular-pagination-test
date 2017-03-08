@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="paginationExample">
+<head>
+  <title>Test App</title>
+  <script src="scripts/angular.min.js"></script>
+  <script src="scripts/ui-bootstrap-tpls-0.14.2.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/angular-translate/angular-translate.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Hello world!</h1>
+
+  <div>
+    <div class="ebLayout-HeadingCommands">
+      <div class="ebLayout-HeadingCommands-block">
+          <button ng-class="{'button_selected': userLanguage == 'de'}" class="btn btn-default" ng-click="changeLanguage('de')" translate>
+            DE
+          </button>
+          <button ng-class="{'button_selected': userLanguage == 'en'}" class="btn btn-default" ng-click="changeLanguage('en')" translate>
+            EN
+          </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="owner" class="container" ng-controller="ProfessionalController as profCtrl">
+    <div>
+      <uib-pagination ng-model="currentPage" total-items="rows.length" max-size="maxSize" boundary-links="true"></uib-pagination>
+    </div>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Salary</th>
+        </tr>
+        <tr data-ng-repeat="person in filteredRows">
+          <td>{{person.name}}</td>
+          <td>{{person.position}}</td>
+          <td>{{person.salary}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.8'><\/script>".replace("HOST", location.hostname));
+    //]]></script>
+    </body>
+    </html>

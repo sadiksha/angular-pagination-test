@@ -7,7 +7,12 @@
   translateConfig.$inject = ['$translateProvider', '$translatePartialLoaderProvider'];
 
   function translateConfig($translateProvider, $translatePartialLoaderProvider) {
-    
+    $translateProvider.translations('en');
+    $translateProvider.translations('de');
+
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
+    $translateProvider.useSanitizeValueStrategy('escape');
   }
 
   ProfessionalController.$inject = ['$scope', '$rootScope'];

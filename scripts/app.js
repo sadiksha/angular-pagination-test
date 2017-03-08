@@ -6,6 +6,9 @@
   ProfessionalController.$inject = ['$scope', '$rootScope'];
 
   function ProfessionalController($scope, $rootScope){
+    $scope.changeLanguage = function (langkey) {
+         $translate.use(langkey);
+    }
 
     var professionalDetails=[
       {"name":"Test 1", "position":"Tester",                "salary":"2000"},

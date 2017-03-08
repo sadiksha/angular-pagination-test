@@ -28,7 +28,15 @@
 
   <div id="owner" class="container">
     <div>
-      <uib-pagination ng-model="currentPage" total-items="rows.length" max-size="maxSize" boundary-links="true" first-text="FIRST_TEXT"></uib-pagination>
+      <uib-pagination ng-model="currentPage"
+                      total-items="rows.length"
+                      max-size="maxSize"
+                      boundary-links="true"
+                      first-text="FIRST_TEXT"
+                      previous-text="PREVIOUS_TEXT"
+                      next-text="NEXT_TEST"
+                      last-text="LAST_TEXT">
+      </uib-pagination>
     </div>
     <table class="table table-striped">
       <tbody>

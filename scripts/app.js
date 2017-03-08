@@ -2,11 +2,16 @@
 
   var module = angular.module('paginationExample',['ui.bootstrap', 'pascalprecht.translate'])
   .controller('ProfessionalController', ProfessionalController)
+  .controller('NavigationController', NavigationController)
   .config(translateConfig);
 
   translateConfig.$inject = ['$translateProvider', '$translatePartialLoaderProvider'];
 
   function translateConfig($translateProvider, $translatePartialLoaderProvider) {
+    $translateProvider.useLoader('$translatePartialLoader', {
+      urlTemplate: 'scripts/internationalizations/{part}/{lang}.json'
+    });
+    $translatePartialLoaderProvider.addPart('homepage');
     $translateProvider.translations('en');
     $translateProvider.translations('de');
 
@@ -15,13 +20,16 @@
     $translateProvider.useSanitizeValueStrategy('escape');
   }
 
-  ProfessionalController.$inject = ['$scope', '$rootScope'];
+  ProfessionalController.$inject = ['$scope', '$rootScope', '$translate'];
+  NavigationController.$inject = ['$scope', '$translate'];
 
-  function ProfessionalController($scope, $rootScope){
+  function NavigationController($scope, $translate) {
     $scope.changeLanguage = function (langkey) {
-         $translate.use(langkey);
+      console.log(langkey);
+      $translate.use(langkey);
     }
-
+  }
+  function ProfessionalController($scope, $rootScope, $translate){
     var professionalDetails=[
       {"name":"Test 1", "position":"Tester",                "salary":"2000"},
       {"name":"Test 2", "position":"Analyzer",              "salary":"1000"},

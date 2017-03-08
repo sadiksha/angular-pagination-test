@@ -12,51 +12,49 @@
 <body>
   <h1>Hello world!</h1>
 
-  <div ng-controller="ProfessionalController as profCtrl">
-  <div>
+  <div ng-controller="NavigationController">
     <div class="ebLayout-HeadingCommands">
       <div class="ebLayout-HeadingCommands-block">
-          <button ng-class="{'button_selected': userLanguage == 'de'}" class="btn btn-default" ng-click="changeLanguage('de')" translate>
-            DE
-          </button>
-          <button ng-class="{'button_selected': userLanguage == 'en'}" class="btn btn-default" ng-click="changeLanguage('en')" translate>
-            EN
-          </button>
+        <button class="btn btn-default" ng-click="changeLanguage('de')">
+          DE
+        </button>
+        <button class="btn btn-default" ng-click="changeLanguage('en')">
+          EN
+        </button>
       </div>
     </div>
   </div>
 
 
-  <div id="owner" class="container">
+  <div id="owner" class="container" ng-controller="ProfessionalController as profCtrl">
     <div>
       <uib-pagination ng-model="currentPage"
-                      total-items="rows.length"
-                      max-size="maxSize"
-                      boundary-links="true"
-                      first-text="FIRST_TEXT"
-                      previous-text="PREVIOUS_TEXT"
-                      next-text="NEXT_TEST"
-                      last-text="LAST_TEXT">
-      </uib-pagination>
-    </div>
-    <table class="table table-striped">
-      <tbody>
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Salary</th>
-        </tr>
-        <tr data-ng-repeat="person in filteredRows">
-          <td>{{person.name}}</td>
-          <td>{{person.position}}</td>
-          <td>{{person.salary}}</td>
-        </tr>
-      </tbody>
-    </table>
+      total-items="rows.length"
+      max-size="maxSize"
+      boundary-links="true"
+      first-text="{{'FIRST_TEXT'|translate}}"
+      previous-text="{{'PREVIOUS_TEXT'|translate}}"
+      next-text="{{'NEXT_TEXT'|translate}}"
+      last-text="LAST_TEXT">
+    </uib-pagination>
   </div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+      </tr>
+      <tr data-ng-repeat="person in filteredRows">
+        <td>{{person.name}}</td>
+        <td>{{person.position}}</td>
+        <td>{{person.salary}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-  <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.8'><\/script>".replace("HOST", location.hostname));
-    //]]></script>
-    </body>
-    </html>
+<script id="__bs_script__">//<![CDATA[
+  document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.8'><\/script>".replace("HOST", location.hostname));
+  //]]></script>
+  </body>
+  </html>
